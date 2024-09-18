@@ -129,42 +129,4 @@ router.get("/check/:studentId", async (req, res) => {
 });
 
 
-// 修改奖品数量
-router.post("/updateGiftCount", async (req, res) => {
-  const { giftId, newCount } = req.body;
-
-  try {
-    // 检查 giftId 和 newCount 是否有效
-    if (!giftId || newCount === undefined) {
-      return res.status(400).json({ message: "Gift ID and new count are required" });
-    }
-
-    // 查找奖品并更新其数量
-    const updatedGift = await Gifts.findByIdAndUpdate(
-      giftId, 
-      { count: newCount }, 
-      { new: true }
-    );
-
-    // 检查是否找到该奖品
-    if (!updatedGift) {
-      return res.status(404).json({ message: "Gift not found" });
-    }
-
-    // 返回更新后的奖品信息
-    res.json({
-      message: "Gift count updated successfully",
-      gift: {
-        id: updatedGift._id,
-        title: updatedGift.title,
-        name: updatedGift.name,
-        count: updatedGift.count
-      }
-    });
-  } catch (error) {
-    res.status(500).json({ message: "Server error", error });
-  }
-});
-
-
 module.exports = router; // 导出 router 对象
