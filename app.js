@@ -11,7 +11,10 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 const port = 3000;
 
-app.use(express.json())
+app.use(express.json());
+// 使用 cors 中间件
+app.use(cors());
+
 
 // 连接MongoDB
 mongoose.connect('mongodb://localhost:27017/recruitmentGift', {
