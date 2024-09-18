@@ -24,6 +24,27 @@ router.post('/addUser', async (req, res) => {
 
 });
 
+// 删除用户
+router.post("/deleteUser", async (req, res) => {
+  const { studentId } = req.body;  // 从请求体中获取 studentId
+
+  try {
+    // 查找并删除用户
+    const deletedApplicant = await Applicant.findOneAndDelete({ studentId });
+
+    if (!deletedApplicant) {
+      return res.status(404).json({ message: "Applicant not found" });
+    }
+
+    // 删除该用户的抽奖历史记录
+    await Histories.deleteMany({ applicantId: deletedApplicant._id });
+
+    res.json({ message: "Applicant and related history deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error });
+  }
+});
+
 // 添加奖品
 router.post('/addGift', async (req, res) => {
     const { title, name, count } = req.body;

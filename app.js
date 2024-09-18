@@ -14,7 +14,7 @@ const port = 3000;
 app.use(express.json())
 
 // 连接MongoDB
-mongoose.connect('mongodb://localhost:27017/recruitmentGift', {
+mongoose.connect('mongodb://10.176.38.17:27017/recruitmentGift', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then((dbo)=>{
@@ -36,8 +36,8 @@ res.send("Welcome to <b>CPU Club</b> !");
 
 } );
 
-app.post("/",(req,res)=>{
-//    res.send("Surprise!");
+app.post("/", (req, res) => {
+    res.send("Surprise!");
 });
 
 //监听3000端口
