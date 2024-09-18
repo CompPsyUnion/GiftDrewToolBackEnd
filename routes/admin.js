@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const Applicant = require('../models/applicants');
+const Gifts = require('../models/gift');
+
 
 // 添加用户
 router.post('/addUser', async (req, res) => {
@@ -25,7 +27,7 @@ router.post('/addUser', async (req, res) => {
 // 添加奖品
 router.post('/addGift', async (req, res) => {
     const { title, name, count } = req.body;
-    const applicant = new Applicant({
+    const gift = new Gifts({
         title,
         name,
         count,
@@ -33,8 +35,8 @@ router.post('/addGift', async (req, res) => {
     });
 
     try {
-        await applicant.save();
-        res.send('Application received!');
+        await gift.save();
+        res.send('Message received!');
     } catch (error) {
         res.status(500).send('Error saving application');
     }

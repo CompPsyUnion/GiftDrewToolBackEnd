@@ -1,7 +1,9 @@
+const mongoose = require('mongoose');
+
 const giftSchema = new mongoose.Schema({
     title: String,
     name: String,
     count: Number
 });
 
-const Gift = mongoose.model('Gift', giftSchema);
+module.exports = mongoose.model('Gifts', giftSchema);
