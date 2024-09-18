@@ -31,15 +31,12 @@ router.post("/deleteUser", async (req, res) => {
   try {
     // 查找并删除用户
     const deletedApplicant = await Applicant.findOneAndDelete({ studentId });
-
+    
     if (!deletedApplicant) {
       return res.status(404).json({ message: "Applicant not found" });
     }
 
-    // 删除该用户的抽奖历史记录
-    await Histories.deleteMany({ applicantId: deletedApplicant._id });
-
-    res.json({ message: "Applicant and related history deleted successfully" });
+    res.json({ message: "Applicant deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: "Server error", error });
   }
@@ -63,10 +60,7 @@ router.post('/addGift', async (req, res) => {
     }
 });
 
-// 删除学号
-router.post('/delUser', (req, res) => {
-    res.send('User list');
-});
+
 
 //查询用户
 router.get('/listUser', (req, res) => {
