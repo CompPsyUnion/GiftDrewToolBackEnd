@@ -72,18 +72,7 @@ router.get('/drew/:id', async (req, res) => {
 
 
 // 奖品核验
-router.get('/check/:id', (req, res) => {
-    if (req.params.id <= 20000000) {
-        res.status(500).send(`Please your student id number!`)
-    } else {
-        console.log('Checked!');
-        res.send(`Gift for student ID: ${req.params.id} is the First prize!`)
-    }
-    
-})
 
-
-// 查找用户获得的奖品
 router.get("/check/:studentId", async (req, res) => {
   try {
     const { studentId } = req.params;
