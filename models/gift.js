@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const giftSchema = new mongoose.Schema({
   title: String,
@@ -6,4 +6,5 @@ const giftSchema = new mongoose.Schema({
   count: Number,
 });
 
-module.exports = mongoose.model("Gift", giftSchema);
+
+module.exports = mongoose.model('Gifts', giftSchema);
