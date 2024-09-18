@@ -26,15 +26,15 @@ router.get('/check/:id', (req, res) => {
 })
 
 //奖品核销
-router.get('/check/:id', (req, res) => {
-    if (req.params.id <= 20000000) {
-        res.send(`Please enter your student id number!`)
-    } else {
-        console.log('Checked!');
-        res.send(`Gift for student ID: ${req.params.id} is the First prize!`)
-    }
+// router.get('/check/:id', (req, res) => {
+//     if (req.params.id <= 20000000) {
+//         res.send(`Please enter your student id number!`)
+//     } else {
+//         console.log('Checked!');
+//         res.send(`Gift for student ID: ${req.params.id} is the First prize!`)
+//     }
 
-})
+// })
 
 
 
