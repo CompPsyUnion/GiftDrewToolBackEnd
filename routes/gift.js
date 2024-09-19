@@ -28,9 +28,12 @@ router.get('/drew/:id', async (req, res) => {
         // 根据 studentId 检查申请者是否存在
         const applicant = await Applicant.findOne( {studentId} );
         console.log(applicant)
-        if (!applicant || applicant.invalid) {
+        if (!applicant) {
           return res.status(404).send('申请者不存在或抽奖码已经使用');
         }
+      if (applicant.hasWon) {
+        return res.status(400).send('该申请者已经抽过奖');
+      }
         console.log("b");
         // 获取所有库存大于 0 的礼品
         const gift = await Gifts.find({ count: { $gt: 0 } });
@@ -45,6 +48,11 @@ router.get('/drew/:id', async (req, res) => {
         // 更新礼品库存
         selectedGift.count -= 1;
         await selectedGift.save();
+
+      // 更新申请者记录
+      applicant.hasWon = true;
+      await applicant.save();
+
 
         // 将抽奖信息记录到 History 表中
         const historyEntry = new Histories({
