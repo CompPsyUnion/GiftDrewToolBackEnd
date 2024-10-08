@@ -1,7 +1,9 @@
 # 简单的抽奖工具后端
 
-使用Node.js + MongoDB构建
-支持运行在腾讯云Serverless服务
+使用Node.js + MongoDB构建 支持运行在腾讯云Serverless服务  
+要用的前一天晚上，两个人熬夜肝出来的，所以admin的api也没做鉴权，后续会加。  
+求Star～✨
+
 ## 关联项目
 前端Github项目：
 前端推荐使用Elctron构建app，或者使用PWA下载到设备使用，无需部署。
