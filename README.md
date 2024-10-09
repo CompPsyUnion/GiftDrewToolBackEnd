@@ -5,10 +5,10 @@
 求Star～✨
 
 ## 关联项目
-前端Github项目：
-前端推荐使用Elctron构建app，或者使用PWA下载到设备使用，无需部署。
-后台前端Github项目：
-后台可部署到腾讯云静态网站托管服务中。
+前端Github项目：  
+前端推荐使用Elctron构建app，或者使用PWA下载到设备使用，无需部署。  
+后台前端Github项目：https://github.com/CompPsyUnion/GiftDrewAdminFE/tree/main  
+后台可部署到腾讯云静态网站托管服务中。  
 
 ## API
 #### 抽奖  
