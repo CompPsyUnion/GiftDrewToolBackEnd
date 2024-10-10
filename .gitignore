@@ -1,0 +1,5 @@
+# 忽略所有.zip文件
+*.zip
+
+# 忽略.DS_Store文件
+.DS_Store
