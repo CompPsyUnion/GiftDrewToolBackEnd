@@ -10,6 +10,18 @@
 后台前端Github项目：https://github.com/CompPsyUnion/GiftDrewAdminFE/tree/main  
 后台可部署到腾讯云静态网站托管服务中。  
 
+## 如何安装  
+首先需要在你的服务器上准备node.js环境和MongoDB数据库管理软件。
+
+然后新建项目目录，克隆此仓库到你的项目目录中
+
+修改app.js中的数据库连接方式（地址、端口、用户名、密码）
+
+在终端运行 
+```
+node app.js
+```
+
 ## API
 #### 抽奖  
 
